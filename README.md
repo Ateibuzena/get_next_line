@@ -58,5 +58,13 @@ Calling your `get_next_line` function repeatedly (for example, using a loop) wil
 - Ensure that your function behaves appropriately when reading from a file and when reading from stdin.
 - Note that the returned line must end with the character `\n`, except if the end of the file is reached and it does not end with a `\n` character.
 - In the header `get_next_line.h`, you should have at least the prototype of the `get_next_line` function.
-- Add all the helper functions you need in the `get_next_line_utils.c` file.
+- Add all the helper functions you need in the `get_next_line_utils.c` file.ç
+- Your program must compile with the flag -D BUFFER_SIZE=xx. This flag will be used to determine the buffer size for the readings of your get_next_line(). This parameter will be modified by your evaluators and by Moulinette to test your program.
+- The program will be compiled as follows (an example using a buffer size of 42):
+```c
+  cc -Wall -Werror -Wextra -D BUFFER_SIZE=42 <files>.c
+```
+- `get_next_line()` is considered to have undefined behavior if the file pointed to by fd has changed since the last call, provided read() has not reached the end of the file.
+- `get_next_line()` is considered to have undefined behavior when reading from a binary file. However, you can implement a logical way to handle this issue if desired.
+
 
