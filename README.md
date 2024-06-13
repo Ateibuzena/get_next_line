@@ -27,7 +27,8 @@ get_next_line
 
 **Prototype:**  
 ```c
-char *get_next_line(int fd);```
+char *get_next_line(int fd);
+```
 
  **Files to Submit**
 - `get_next_line.c`
