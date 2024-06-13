@@ -67,4 +67,17 @@ Calling your `get_next_line` function repeatedly (for example, using a loop) wil
 - `get_next_line()` is considered to have undefined behavior if the file pointed to by fd has changed since the last call, provided read() has not reached the end of the file.
 - `get_next_line()` is considered to have undefined behavior when reading from a binary file. However, you can implement a logical way to handle this issue if desired.
 
+### Chapter IV  
+#### Bonus Part  
+
+This project is quite straightforward and doesn't leave much room for bonuses. However, we trust in your creativity. If you have completed the mandatory part, try it with these bonuses.  
+
+Here are the requirements for the bonus part:  
+- Develop `get_next_line()` using only one static variable.
+- Your `get_next_line` should be able to handle multiple file descriptors (fd) simultaneously. That is, if you have three available fds for reading (for example: 3, 4, and 5), you should be able to use `get_next_line` alternately on fd 3, then on fd 4, and then on fd 5 without losing the reading context for each fd.  
+- Append the suffix `_bonus.[c\h]` to the files in this bonus part. This means, in addition to the mandatory part files, you must deliver the following three files:
+  - `get_next_line_bonus.c`
+  - `get_next_line_bonus.h`
+  - `get_next_line_utils_bonus.c`
+
 
