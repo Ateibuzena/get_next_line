@@ -3,26 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azubieta <azubieta@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: chanin <chanin@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 14:40:33 by azubieta          #+#    #+#             */
-/*   Updated: 2024/05/15 18:34:04 by azubieta         ###   ########.fr       */
+/*   Updated: 2025/05/28 16:34:54 by chanin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "./get_next_line.h"
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strlen_getnextline(const char *s)
 {
 	size_t	i;
 
 	i = 0;
+	if (!s)
+		return (0);
 	while (s[i] != '\0')
 		i++;
 	return (i);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin_getnextline(char *s1, char *s2)
 {
 	char	*join;
 	size_t	i;
@@ -30,15 +32,16 @@ char	*ft_strjoin(char *s1, char *s2)
 
 	i = 0;
 	n = 0;
-	join = malloc ((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+	join = malloc ((ft_strlen_getnextline(s1) + ft_strlen_getnextline(s2)
+				+ 1) * sizeof(char));
 	if (!join || (!s1 && !s2))
 		return (NULL);
-	while (i < ft_strlen(s1))
+	while (i < len_s1)
 	{
 		join[i] = s1[i];
 		i++;
 	}
-	while (n < ft_strlen(s2))
+	while (n < len_s2)
 	{
 		join[i] = s2[n];
 		i++;
@@ -48,15 +51,19 @@ char	*ft_strjoin(char *s1, char *s2)
 	return (join);
 }
 
-char	*ft_strchr(const char *str, int c)
+char	*ft_strchr_getnextline(const char *str, int c)
 {
 	size_t	i;
 	char	*ptr;
+	size_t	len;
 
+	if (!str || !(*str))
+		return (NULL);
+	len = ft_strlen_getnextline(str);
 	i = 0;
-	while (i <= ft_strlen(str))
+	while (i <= len)
 	{
-		if (str[i] == (unsigned char)c)
+		if (str[i] && str[i] == (unsigned char)c)
 		{
 			ptr = (char *)str + i;
 			return (ptr);

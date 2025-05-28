@@ -22,27 +22,27 @@
 #  define BUFFER_SIZE 45
 # endif
 
-# ifndef S_LIST
-#  define S_LIST
+# ifndef S_FDNODE
+#  define S_FDNODE
 
-typedef struct s_list
+typedef struct s_fdnode
 {
 	char			*buffer;
 	int				fd;
-	struct s_list	*next;
-}	t_list;
+	struct s_fdnode	*next;
+}	t_fdnode;
 
 # endif
 
-char	*get_next_line(int fd);
-char	*ft_read_fd(int fd, char *buffer);
-char	*ft_line(char *line);
-char	*ft_free(char *ptr);
-char	*ft_buffer_update(char *buffer);
-t_list	*ft_newnode(int fd);
-char	*ft_freenode(t_list **list, int fd);
-size_t	ft_strlen(const char *s);
-char	*ft_strjoin(char *s1, char *s2);
-char	*ft_strchr(const char *str, int c);
+/*get_next_line_bonus.c*/
+char		*get_next_line(int fd);
+char		*ft_free_getnextline_bonus(char *ptr);
+
+/*get_next_line_utils_bonus.c*/
+size_t		ft_strlen_getnextline_bonus(const char *s);
+char		*ft_strjoin_getnextline_bonus(char *s1, char *s2);
+char		*ft_strchr_getnextline_bonus(const char *str, int c);
+t_fdnode	*ft_newnode_getnextline_bonus(int fd);
+char		*ft_freenode_getnextline_bonus(t_fdnode **list, int fd);
 
 #endif
