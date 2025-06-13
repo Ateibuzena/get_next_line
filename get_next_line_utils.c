@@ -29,24 +29,22 @@ char	*ft_strjoin_getnextline(char *s1, char *s2)
 	char	*join;
 	size_t	i;
 	size_t	n;
+	size_t	len_s1;
+	size_t	len_s2;
 
-	i = 0;
-	n = 0;
-	join = malloc ((ft_strlen_getnextline(s1) + ft_strlen_getnextline(s2)
-				+ 1) * sizeof(char));
+	i = -1;
+	n = -1;
+	if (!s1 && !s2)
+		return (NULL);
+	len_s1 = ft_strlen_getnextline(s1);
+	len_s2 = ft_strlen_getnextline(s2);
+	join = malloc ((len_s1 + len_s2 + 1) * sizeof(char));
 	if (!join || (!s1 && !s2))
 		return (NULL);
-	while (i < len_s1)
-	{
+	while (++i < len_s1)
 		join[i] = s1[i];
-		i++;
-	}
-	while (n < len_s2)
-	{
-		join[i] = s2[n];
-		i++;
-		n++;
-	}
+	while (++n < len_s2)
+		join[i++] = s2[n];
 	join[i] = '\0';
 	return (join);
 }
