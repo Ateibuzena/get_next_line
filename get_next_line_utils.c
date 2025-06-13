@@ -38,7 +38,7 @@ char	*ft_strjoin_getnextline(char *s1, char *s2)
 		return (NULL);
 	len_s1 = ft_strlen_getnextline(s1);
 	len_s2 = ft_strlen_getnextline(s2);
-	join = malloc ((len_s1 + len_s2 + 1) * sizeof(char));
+	join = malloc((len_s1 + len_s2 + 1) * sizeof(char));
 	if (!join || (!s1 && !s2))
 		return (NULL);
 	while (++i < len_s1)
