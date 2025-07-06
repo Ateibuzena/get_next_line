@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chanin <chanin@student.42malaga.com>       +#+  +:+       +#+        */
+/*   By: azubieta <azubieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 21:47:26 by azubieta          #+#    #+#             */
-/*   Updated: 2025/05/28 17:16:02 by chanin           ###   ########.fr       */
+/*   Updated: 2025/07/06 15:07:08 by azubieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static char	*ft_read_fd(int fd, char *buffer)
 	if (!chunk)
 		return (NULL);
 	bytes = 1;
-	while (!ft_strchr_getnextline(buffer, '\n') && bytes > 0)
+	while (!ft_strchr(buffer, '\n') && bytes > 0)
 	{
 		bytes = read(fd, chunk, BUFFER_SIZE);
 		if (bytes == -1)
@@ -32,7 +32,7 @@ static char	*ft_read_fd(int fd, char *buffer)
 		}
 		chunk[bytes] = '\0';
 		temp = buffer;
-		buffer = ft_strjoin_getnextline(buffer, chunk);
+		buffer = ft_strjoin(buffer, chunk);
 		free(temp);
 		if (!buffer)
 			return (ft_free(chunk));
@@ -87,7 +87,7 @@ static char	*ft_update_buffer(char *buffer)
 		free(buffer);
 		return (NULL);
 	}
-	new = malloc((ft_strlen_getnextline(buffer) - i + 1) * sizeof(char));
+	new = malloc((ft_strlen(buffer) - i + 1) * sizeof(char));
 	if (!new)
 		return (NULL);
 	i++;

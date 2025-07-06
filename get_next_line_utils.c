@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chanin <chanin@student.42malaga.com>       +#+  +:+       +#+        */
+/*   By: azubieta <azubieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 14:40:33 by azubieta          #+#    #+#             */
-/*   Updated: 2025/05/28 16:34:54 by chanin           ###   ########.fr       */
+/*   Updated: 2025/07/06 15:07:16 by azubieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./get_next_line.h"
 
-size_t	ft_strlen_getnextline(const char *s)
+size_t	ft_strlen(const char *s)
 {
 	size_t	i;
 
@@ -24,7 +24,7 @@ size_t	ft_strlen_getnextline(const char *s)
 	return (i);
 }
 
-char	*ft_strjoin_getnextline(char *s1, char *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*join;
 	size_t	i;
@@ -36,8 +36,8 @@ char	*ft_strjoin_getnextline(char *s1, char *s2)
 	n = -1;
 	if (!s1 && !s2)
 		return (NULL);
-	len_s1 = ft_strlen_getnextline(s1);
-	len_s2 = ft_strlen_getnextline(s2);
+	len_s1 = ft_strlen(s1);
+	len_s2 = ft_strlen(s2);
 	join = malloc((len_s1 + len_s2 + 1) * sizeof(char));
 	if (!join || (!s1 && !s2))
 		return (NULL);
@@ -49,7 +49,7 @@ char	*ft_strjoin_getnextline(char *s1, char *s2)
 	return (join);
 }
 
-char	*ft_strchr_getnextline(const char *str, int c)
+char	*ft_strchr(const char *str, int c)
 {
 	size_t	i;
 	char	*ptr;
@@ -57,7 +57,7 @@ char	*ft_strchr_getnextline(const char *str, int c)
 
 	if (!str || !(*str))
 		return (NULL);
-	len = ft_strlen_getnextline(str);
+	len = ft_strlen(str);
 	i = 0;
 	while (i <= len)
 	{

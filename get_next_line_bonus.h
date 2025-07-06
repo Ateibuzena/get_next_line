@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azubieta <azubieta@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: azubieta <azubieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 22:13:06 by azubieta          #+#    #+#             */
-/*   Updated: 2024/05/14 21:45:45 by azubieta         ###   ########.fr       */
+/*   Updated: 2025/07/06 15:05:52 by azubieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,13 @@ typedef struct s_fdnode
 
 /*get_next_line_bonus.c*/
 char		*get_next_line(int fd);
-char		*ft_free_getnextline_bonus(char *ptr);
+char		*ft_free(char *ptr);
 
 /*get_next_line_utils_bonus.c*/
-size_t		ft_strlen_getnextline_bonus(const char *s);
-char		*ft_strjoin_getnextline_bonus(char *s1, char *s2);
-char		*ft_strchr_getnextline_bonus(const char *str, int c);
-t_fdnode	*ft_newnode_getnextline_bonus(int fd);
-char		*ft_freenode_getnextline_bonus(t_fdnode **list, int fd);
+size_t		ft_strlen(const char *s);
+char		*ft_strjoin(char *s1, char *s2);
+char		*ft_strchr(const char *str, int c);
+t_fdnode	*ft_newnode(int fd);
+char		*ft_freenode(t_fdnode **list, int fd);
 
 #endif

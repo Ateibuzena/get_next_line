@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chanin <chanin@student.42malaga.com>       +#+  +:+       +#+        */
+/*   By: azubieta <azubieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 21:47:26 by azubieta          #+#    #+#             */
-/*   Updated: 2025/05/28 17:14:44 by chanin           ###   ########.fr       */
+/*   Updated: 2025/07/06 15:06:52 by azubieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./get_next_line_bonus.h"
 
-char	*ft_free_getnextline_bonus(char *ptr)
+char	*ft_free(char *ptr)
 {
 	free(ptr);
 	ptr = NULL;
@@ -31,8 +31,8 @@ static char	*ft_buffer_update(char *buffer)
 	while (buffer[i] != '\0' && buffer[i] != '\n')
 		i++;
 	if (buffer[i] == '\0')
-		return (ft_free_getnextline_bonus(buffer));
-	ptr = malloc(((ft_strlen_getnextline_bonus(buffer) - i)
+		return (ft_free(buffer));
+	ptr = malloc(((ft_strlen(buffer) - i)
 				+ 1) * sizeof(char));
 	if (!ptr)
 		return (NULL);
@@ -84,20 +84,20 @@ static char	*ft_read_fd(int fd, char *buffer)
 	ptr = malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!ptr)
 		return (NULL);
-	while (!ft_strchr_getnextline_bonus(buffer, '\n') && bytes != 0)
+	while (!ft_strchr(buffer, '\n') && bytes != 0)
 	{
 		bytes = read(fd, ptr, BUFFER_SIZE);
 		if (bytes == -1)
 		{
 			free(buffer);
-			return (ft_free_getnextline_bonus(ptr));
+			return (ft_free(ptr));
 		}
 		ptr[bytes] = '\0';
 		temp = buffer;
-		buffer = ft_strjoin_getnextline_bonus(buffer, ptr);
+		buffer = ft_strjoin(buffer, ptr);
 		free(temp);
 		if (!buffer)
-			return (ft_free_getnextline_bonus(ptr));
+			return (ft_free(ptr));
 	}
 	free(ptr);
 	return (buffer);
@@ -110,13 +110,13 @@ char	*get_next_line(int fd)
 	char			*line;
 
 	if (fd < 0 || BUFFER_SIZE < 0 || read(fd, 0, 0) < 0)
-		return (ft_freenode_getnextline_bonus(&list, fd), NULL);
+		return (ft_freenode(&list, fd), NULL);
 	current = list;
 	while (current && current->fd != fd)
 		current = current->next;
 	if (!current)
 	{
-		current = ft_newnode_getnextline_bonus(fd);
+		current = ft_newnode(fd);
 		if (!current)
 			return (NULL);
 		current->next = list;
@@ -124,10 +124,10 @@ char	*get_next_line(int fd)
 	}
 	current->buffer = ft_read_fd(fd, current->buffer);
 	if (!current->buffer)
-		return (ft_freenode_getnextline_bonus(&list, fd));
+		return (ft_freenode(&list, fd));
 	line = ft_line_extract(current->buffer);
 	current->buffer = ft_buffer_update(current->buffer);
 	if (!current->buffer)
-		ft_freenode_getnextline_bonus(&list, fd);
-	return (line);
+		ft_freenode(&list, fd);
+	return (ft_freenode(&current, fd), line);
 }

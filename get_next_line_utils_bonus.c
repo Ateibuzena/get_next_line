@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chanin <chanin@student.42malaga.com>       +#+  +:+       +#+        */
+/*   By: azubieta <azubieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 14:40:33 by azubieta          #+#    #+#             */
-/*   Updated: 2025/05/28 17:03:38 by chanin           ###   ########.fr       */
+/*   Updated: 2025/07/06 15:06:36 by azubieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./get_next_line_bonus.h"
 
-size_t	ft_strlen_getnextline_bonus(const char *s)
+size_t	ft_strlen(const char *s)
 {
 	int	i;
 
@@ -24,7 +24,7 @@ size_t	ft_strlen_getnextline_bonus(const char *s)
 	return (i);
 }
 
-char	*ft_strjoin_getnextline_bonus(char *s1, char *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*join;
 	size_t	i;
@@ -32,8 +32,8 @@ char	*ft_strjoin_getnextline_bonus(char *s1, char *s2)
 
 	if (!s1 || !s2)
 		return (NULL);
-	join = malloc((ft_strlen_getnextline_bonus(s1)
-				+ ft_strlen_getnextline_bonus(s2) + 1) * sizeof(char));
+	join = malloc((ft_strlen(s1)
+				+ ft_strlen(s2) + 1) * sizeof(char));
 	if (!join)
 		return (NULL);
 	i = 0;
@@ -52,7 +52,7 @@ char	*ft_strjoin_getnextline_bonus(char *s1, char *s2)
 	return (join);
 }
 
-char	*ft_strchr_getnextline_bonus(const char *str, int c)
+char	*ft_strchr(const char *str, int c)
 {
 	if (!str || !(*str))
 		return (NULL);
@@ -67,7 +67,7 @@ char	*ft_strchr_getnextline_bonus(const char *str, int c)
 	return (NULL);
 }
 
-t_fdnode	*ft_newnode_getnextline_bonus(int fd)
+t_fdnode	*ft_newnode(int fd)
 {
 	t_fdnode	*node;
 
@@ -87,7 +87,7 @@ t_fdnode	*ft_newnode_getnextline_bonus(int fd)
 	return (node);
 }
 
-char	*ft_freenode_getnextline_bonus(t_fdnode **list, int fd)
+char	*ft_freenode(t_fdnode **list, int fd)
 {
 	t_fdnode	*actual;
 	t_fdnode	*previous;
