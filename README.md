@@ -24,18 +24,20 @@ char *get_next_line(int fd);
 
 **Bonus:**
 ```c
-char *get_next_line(int fd);
-char *ft_free(char *ptr);
-size_t ft_strlen(const char *s);
-char *ft_strjoin(char *s1, char *s2);
-char *ft_strchr(const char *str, int c);
-typedef struct s_fdnode {
-    char *buffer;
-    int fd;
-    struct s_fdnode *next;
-} t_fdnode;
-t_fdnode *ft_newnode(int fd);
-char *ft_freenode(t_fdnode **list, int fd);
+char      *get_next_line(int fd);
+char      *ft_free(char *ptr);
+size_t    ft_strlen(const char *s);
+char      *ft_strjoin(char *s1, char *s2);
+char      *ft_strchr(const char *str, int c);
+t_fdnode  *ft_newnode(int fd);
+char      *ft_freenode(t_fdnode **list, int fd);
+
+typedef struct s_fdnode
+{
+        char            *buffer;
+        int             fd;
+        struct s_fdnode *next;
+}    t_fdnode;
 ```
 
 ## �️ Usage
