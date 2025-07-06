@@ -6,7 +6,7 @@
 /*   By: azubieta <azubieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 21:47:26 by azubieta          #+#    #+#             */
-/*   Updated: 2025/07/06 15:07:08 by azubieta         ###   ########.fr       */
+/*   Updated: 2025/07/06 15:17:38 by azubieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,3 +120,71 @@ char	*get_next_line(int fd)
 	buffer = ft_update_buffer(buffer);
 	return (line);
 }
+
+/*#include <fcntl.h>
+#include <stdio.h>
+
+int main(void)
+{
+    int fd;
+    char *line;
+    int line_count = 0;
+
+    // Test 1: Reading from a file
+    printf("=== Test 1: Reading from file ===\n");
+    fd = open("test.txt", O_RDONLY);
+    if (fd == -1)
+    {
+        printf("Error: Could not open test.txt\n");
+        printf("Creating a test file...\n");
+        
+        // Create a test file
+        int create_fd = open("test.txt", O_CREAT | O_WRONLY | O_TRUNC, 0644);
+        if (create_fd != -1)
+        {
+            write(create_fd, "Line 1\nLine 2\nLine 3\n\nLine 5", 26);
+            close(create_fd);
+            fd = open("test.txt", O_RDONLY);
+        }
+    }
+    
+    if (fd != -1)
+    {
+        while ((line = get_next_line(fd)) != NULL)
+        {
+            printf("Line %d: %s", ++line_count, line);
+            if (line[ft_strlen(line) - 1] != '\n')
+                printf("\n");
+            free(line);
+        }
+        close(fd);
+        printf("Total lines read: %d\n\n", line_count);
+    }
+
+    // Test 2: Edge cases
+    printf("=== Test 2: Edge cases ===\n");
+    
+    // Invalid file descriptor
+    line = get_next_line(-1);
+    printf("Invalid fd (-1): %s\n", line ? line : "NULL (correct)");
+    
+    // Non-existent file
+    fd = open("nonexistent.txt", O_RDONLY);
+    line = get_next_line(fd);
+    printf("Non-existent file: %s\n", line ? line : "NULL (correct)");
+    
+    // Test 3: Reading from stdin (uncomment to test)
+    printf("\n=== Test 3: Reading from stdin ===\n");
+    printf("Enter some lines (Ctrl+D to end):\n");
+    line_count = 0;
+    while ((line = get_next_line(0)) != NULL)
+    {
+        printf("You entered: %s", line);
+        free(line);
+        line_count++;
+    }
+    printf("Read %d lines from stdin\n", line_count);
+    
+
+    return (0);
+}*/
