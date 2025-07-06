@@ -65,10 +65,14 @@ gcc -D BUFFER_SIZE=100 ...
 #include <fcntl.h>
 #include <stdio.h>
 
-int main(void) {
-    int fd = open("file.txt", O_RDONLY);
-    char *line;
-    while ((line = get_next_line(fd)) != NULL) {
+int main(void)
+{
+    int         fd;
+    char        *line;
+
+    fd = open("file.txt", O_RDONLY);
+    while ((line = get_next_line(fd)) != NULL)
+    {
         printf("%s", line);
         free(line);
     }
