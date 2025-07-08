@@ -6,7 +6,7 @@
 /*   By: azubieta <azubieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 13:02:42 by azubieta          #+#    #+#             */
-/*   Updated: 2025/07/08 13:05:11 by azubieta         ###   ########.fr       */
+/*   Updated: 2025/07/08 13:19:28 by azubieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ char	*ft_freenode(t_fdnode **list, int fd)
 
 	if (!list || !*list)
 		return (NULL);
+	if (fd == -1)
+		return (ft_free_all_nodes(list), NULL);
 	actual = *list;
 	previous = NULL;
 	while (actual && actual->fd != fd)
@@ -58,8 +60,6 @@ char	*ft_freenode(t_fdnode **list, int fd)
 	else
 		*list = actual->next;
 	free(actual->buffer);
-	actual->buffer = NULL;
 	free(actual);
-	actual = NULL;
 	return (NULL);
 }
