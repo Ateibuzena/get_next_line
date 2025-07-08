@@ -6,7 +6,7 @@
 /*   By: azubieta <azubieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 21:47:26 by azubieta          #+#    #+#             */
-/*   Updated: 2025/07/08 13:03:48 by azubieta         ###   ########.fr       */
+/*   Updated: 2025/07/08 13:06:45 by azubieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,13 +108,13 @@ char	*get_next_line(int fd)
 	while (current && current->fd != fd)
 		current = current->next;
 	if (!current)
-    {
-        current = ft_newnode(fd);
-        if (!current)
-            return (NULL);
-        current->next = list;
-        list = current;
-    }
+	{
+		current = ft_newnode(fd);
+		if (!current)
+			return (NULL);
+		current->next = list;
+		list = current;
+	}
 	current->buffer = ft_read_fd(fd, current->buffer);
 	if (!current->buffer)
 		return (ft_freenode(&list, fd));

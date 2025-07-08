@@ -6,7 +6,7 @@
 /*   By: azubieta <azubieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 13:02:42 by azubieta          #+#    #+#             */
-/*   Updated: 2025/07/08 13:03:55 by azubieta         ###   ########.fr       */
+/*   Updated: 2025/07/08 13:05:11 by azubieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void	ft_free_all_nodes(t_fdnode **list)
 
 	if (!list || !*list)
 		return ;
-
 	actual = *list;
 	while (actual)
 	{
