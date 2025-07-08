@@ -6,7 +6,7 @@
 /*   By: azubieta <azubieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 22:13:06 by azubieta          #+#    #+#             */
-/*   Updated: 2025/07/06 15:05:52 by azubieta         ###   ########.fr       */
+/*   Updated: 2025/07/08 13:03:36 by azubieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,16 @@ typedef struct s_fdnode
 
 /*get_next_line_bonus.c*/
 char		*get_next_line(int fd);
+
+/*get_next_line_free_bonus.c*/
 char		*ft_free(char *ptr);
+void		ft_free_all_nodes(t_fdnode **list);
+char		*ft_freenode(t_fdnode **list, int fd);
 
 /*get_next_line_utils_bonus.c*/
 size_t		ft_strlen(const char *s);
 char		*ft_strjoin(char *s1, char *s2);
 char		*ft_strchr(const char *str, int c);
 t_fdnode	*ft_newnode(int fd);
-char		*ft_freenode(t_fdnode **list, int fd);
 
 #endif

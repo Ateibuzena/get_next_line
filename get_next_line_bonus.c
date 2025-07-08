@@ -6,18 +6,11 @@
 /*   By: azubieta <azubieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 21:47:26 by azubieta          #+#    #+#             */
-/*   Updated: 2025/07/06 15:58:32 by azubieta         ###   ########.fr       */
+/*   Updated: 2025/07/08 13:03:48 by azubieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./get_next_line_bonus.h"
-
-char	*ft_free(char *ptr)
-{
-	free(ptr);
-	ptr = NULL;
-	return (ptr);
-}
 
 static char	*ft_buffer_update(char *buffer)
 {
